@@ -1,0 +1,71 @@
+% !TEX root = ./main.tex
+\ProvidesPackage{YangPackages}
+
+\usepackage{mwe}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\newtheorem*{remark}{Remark}
+\usepackage{mathrsfs}
+\usepackage{siunitx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{adjustbox}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage[title,titletoc]{appendix}
+\usepackage{subcaption}
+\usepackage{overpic}
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=blue,
+    citecolor=blue,
+    urlcolor=cyan,
+}
+\usepackage{cleveref}
+\usepackage[font=small,labelfont=bf,labelsep=period,width=.9\textwidth]{caption}
+\setlength{\bibsep}{0.0pt}
+\usepackage{booktabs}
+\setlength{\heavyrulewidth}{1.5pt}
+\setlength{\abovetopsep}{4pt}
+\usepackage{enumitem}
+
+% remove "preprint submitted to..."
+\makeatletter
+\def\ps@pprintTitle{%
+    \let\@oddhead\@empty
+    \let\@evenhead\@empty
+    \def\@oddfoot{\reset@font\hfil\thepage\hfil}
+    \let\@evenfoot\@oddfoot
+}
+\makeatother
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.13}
+\usepackage{tikz}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{patterns}
+\pgfdeclarelayer{ft}
+\pgfdeclarelayer{bg}
+\pgfsetlayers{bg,main,ft}
+\graphicspath{
+    {tikz/}{figures/}
+}
+
+% externalize tikz if possible
+% \usetikzlibrary{external}
+% \tikzexternalize[prefix=tikz/]
+
+% Style to select only points from #1 to #2 (inclusive)
+\pgfplotsset{select coords between index/.style 2 args={
+    x filter/.code={
+        \ifnum\coordindex<#1\def\pgfmathresult{}\fi
+            \ifnum\coordindex>#2\def\pgfmathresult{}\fi
+            }
+        }}
+
+% drafting
+\usepackage{todonotes}
+\usepackage{changes}
+\definechangesauthor[name=YL,color=blue]{YL}

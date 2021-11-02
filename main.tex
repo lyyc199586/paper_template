@@ -1,0 +1,30 @@
+\documentclass[preprint,12pt]{elsarticle}
+
+\usepackage{YangPackages}
+\usepackage{YangOperators}
+\usepackage{YangOperatorsLocal}
+
+\journal{XXX}
+
+% The includeonly macro comes in handy if you are only working on specific sections.
+% Usage: \includeonly{section1,section2,section3}
+% Note: no spaces between arguments, no '.tex'
+% \includeonly{example/main}
+
+\begin{document}
+
+\input{frontmatter}
+\input{introduction/main}
+\input{modeling/main}
+\input{numerical/main}
+\input{conclusions/main}
+
+
+\bibliographystyle{elsarticle-num} 
+\bibliography{bib}
+
+
+\end{document}
+\endinput
+%%
+%% End of file `elsarticle-template-num.tex'.
